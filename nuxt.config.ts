@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
+    baseURL: '/bodhisattva18/sample/',
     rootAttrs: {
       class: 'h-full min-h-svh',
     }

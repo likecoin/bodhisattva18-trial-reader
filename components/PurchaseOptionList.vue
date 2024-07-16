@@ -20,8 +20,8 @@ function getPurchaseURL(priceIndex: number) {
 
 const editions = computed(() => (
   [
-    'US$ 30 購買限量插畫印刷珍藏版',
-    'US$ 16 購買普通版'
+    'US $30 - 限量珍藏版',
+    'US $16 - 普通版'
   ].map((title, index) => ({
     title,
     purchaseURL: getPurchaseURL(index),

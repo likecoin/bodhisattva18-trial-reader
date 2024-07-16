@@ -15,7 +15,7 @@ function getPurchaseURL(priceIndex: number) {
   const qsPayload = new URLSearchParams();
   if (route.query.from && !Array.isArray(route.query.from)) qsPayload.append('from', route.query.from);
   if (priceIndex) qsPayload.append("price_index", `${priceIndex}`);
-  return `https://api.rinkeby.like.co/likernft/book/purchase/likenft10e4gsezx2xfujwkl89e0vv07j8x3ha4hreulc77p4wm4manag4rqk6zeq8/new?${qsPayload.toString()}`;
+  return `https://api.like.co/likernft/book/purchase/likenft16jguhkfa6nnu224fwjke2zv5f99n8wl9m097h46zqxnyu33j7rgs7f0xg3/new?${qsPayload.toString()}`;
 }
 
 const editions = computed(() => (

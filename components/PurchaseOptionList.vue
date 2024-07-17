@@ -40,7 +40,7 @@ const editions = computed(() => (
 ));
 
 function handleClickPurchaseButton(index: number) {
-  useTrackEvent('add_to_cart', {
+  useTrackEvent('begin_checkout', {
     location: props.location,
     price_index: index,
   });

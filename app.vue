@@ -152,8 +152,9 @@
 <script setup lang="ts">
 import illustration from '~/assets/illustration.jpeg';
 
-const title = '試閱 | 菩薩 18 / Bodhisattva 18 - 董啟章 | Liker Land';
-const description = '試閱第一章 - 冰菩薩 / Ice Bodhisattva';
+const title = '試閱 - 第一章 - 冰菩薩 | 菩薩 18 / Bodhisattva 18 - 董啟章 | Liker Land';
+const description = '本書由十八篇從「菩薩」意象出發的奇想式短篇故事所組成，每篇配以一幅原創插畫。 作者採用篇幅極短的故事體，輕描淡寫，娓娓道來，卻時有靈光閃現，帶來瞬間的觸動和啟示。插畫家以色彩捕捉文本的神髓，融入個人情感與想像，創造出另一層的意境，畫作本身非常值得欣賞和收藏。';
+const ogImage = 'https://uploads-ssl.webflow.com/665fbdb52ca965fcd58d2092/66977f5984251bae94f71ec2_likerland%20ogcompressed.jpg';
 
 useHead({
   htmlAttrs: {
@@ -181,25 +182,41 @@ useHead({
   title,
   meta: [
     {
-      name: 'description',
-      content: description,
-    },
-    {
       property: 'og:title',
       content: title,
+    },
+    {
+      property: 'twitter:title',
+      content: title,
+    },
+    {
+      name: 'description',
+      content: description,
     },
     {
       property: 'og:description',
       content: description,
     },
     {
+      property: 'twitter:description',
+      content: description,
+    },
+    {
       property: 'og:image',
-      content: 'https://static.like.co/thumbnail/?url=https%3A%2F%2Farweave.net%2FdWBzG6862uxUFSQaI7MHTHJrH0U91mimqSS013ooEpk&width=400',
+      content: ogImage,
+    },
+    {
+      property: 'twitter:image',
+      content: ogImage,
     },
     {
       property: 'og:url',
       content: 'https://books.liker.land/bodhisattva18/sample',
     },
+    {
+      property: 'og:type',
+      content: 'website',
+    }
   ],
 });
 

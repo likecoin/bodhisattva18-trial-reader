@@ -12,5 +12,8 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  modules: ['@nuxt/ui']
+  modules: ['@nuxt/ui', "nuxt-gtag"],
+  gtag: {
+    id: 'G-S48XCGK428'
+  },
 })

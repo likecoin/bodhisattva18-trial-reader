@@ -1,7 +1,14 @@
 <template>
   <ul class="flex flex-col gap-4">
-    <li v-for="edition in editions" :key="edition.title">
-      <UButton color="black" size="xl" :block="true" :to="edition.purchaseURL">
+    <li v-for="(edition, index) in editions" :key="edition.title">
+      <UButton
+        color="black"
+        size="xl"
+        :block="true"
+        target="_blank"
+        :to="edition.purchaseURL"
+        @click="handleClickPurchaseButton(index)"
+      >
         {{ edition.title }}
       </UButton>
     </li>
@@ -10,6 +17,10 @@
 
 <script setup lang="ts">
 const route = useRoute();
+
+const props = defineProps({
+  location: String,
+});
 
 function getPurchaseURL(priceIndex: number) {
   const qsPayload = new URLSearchParams();
@@ -27,4 +38,11 @@ const editions = computed(() => (
     purchaseURL: getPurchaseURL(index),
   }))
 ));
+
+function handleClickPurchaseButton(index: number) {
+  useTrackEvent('purchase', {
+    location: props.location,
+    price_index: index,
+  });
+}
 </script>

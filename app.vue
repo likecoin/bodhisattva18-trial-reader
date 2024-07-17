@@ -47,7 +47,7 @@
             icon="i-heroicons-shopping-bag"
             color="black"
             size="md"
-            @click="handleClickPurchaseButton"
+            @click="handleClickPurchaseButtonInHeader"
           />
 
           <UPopover :popper="{ placement: 'bottom-end' }">
@@ -81,7 +81,7 @@
                   color="black"
                   size="lg"
                   block
-                  @click="handleClickPurchaseButton"
+                  @click="handleClickPurchaseButtonInMenu"
                 />
               </div>
             </template>
@@ -132,7 +132,7 @@
           <p class="text-[12px] text-[black] opacity-50">董啟章</p>
         </div>
   
-        <PurchaseOptionList class="mt-[24px]" />
+        <PurchaseOptionList class="mt-[24px]" location="modal" />
       </div>
     </main>
 
@@ -143,7 +143,7 @@
           購買電子書
         </template>
 
-        <PurchaseOptionList />
+        <PurchaseOptionList location="bottom" />
       </UCard>
     </UModal>
   </div>
@@ -232,7 +232,16 @@ const backButtonURL = computed(() => {
   return `${homePageURL}${qs ? `?${qs}` : ''}`;
 });
 
-function handleClickPurchaseButton() {
+function openSelectEditionModal(location: string) {
   isPurchaseModalOpen.value = true;
+  useTrackEvent('open_select_edition_modal', { location });
+}
+
+function handleClickPurchaseButtonInHeader() {
+  openSelectEditionModal('header');
+}
+
+function handleClickPurchaseButtonInMenu() {
+  openSelectEditionModal('menu');
 }
 </script>

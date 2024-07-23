@@ -178,6 +178,10 @@ useHead({
       rel: 'stylesheet',
       href: 'https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&display=swap',
     },
+    {
+      rel: 'canonical',
+      href: 'https://books.liker.land/bodhisattva18/sample',
+    },
   ],
   title,
   meta: [

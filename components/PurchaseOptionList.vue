@@ -23,9 +23,18 @@ const props = defineProps({
 });
 
 function getPurchaseURL(priceIndex: number) {
+  const {
+    from,
+    utm_source: utmSource = 'bodhisattva18-sample',
+    utm_medium: utmMedium,
+    utm_campaign: utmCampaign,
+  } = route.query;
   const qsPayload = new URLSearchParams();
-  if (route.query.from && !Array.isArray(route.query.from)) qsPayload.append('from', route.query.from);
+  if (from && !Array.isArray(from)) qsPayload.append('from', from);
   if (priceIndex) qsPayload.append("price_index", `${priceIndex}`);
+  if (utmSource) qsPayload.append('utm_source', utmSource)
+  if (utmMedium) qsPayload.append('utm_medium', utmMedium)
+  if (utmCampaign) qsPayload.append('utm_campaign', utmCampaign)
   return `https://api.like.co/likernft/book/purchase/likenft16jguhkfa6nnu224fwjke2zv5f99n8wl9m097h46zqxnyu33j7rgs7f0xg3/new?${qsPayload.toString()}`;
 }
 
